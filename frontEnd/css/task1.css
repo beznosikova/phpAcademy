@@ -1,22 +1,22 @@
 @font-face {
 	font-family: Alegreya;
-	src: url(fonts/Alegreya-Regular.ttf);
+	src: url(../fonts/Alegreya-Regular.ttf);
 	font-weight: 400;
 }
 
 @font-face {
 	font-family: CuprumItalic;
-	src: url(fonts/Cuprum-Italic.ttf);
+	src: url(../fonts/Cuprum-Italic.ttf);
 }	
 
 @font-face {
 	font-family: CuprumBold;
-	src: url(fonts/Cuprum-Bold.ttf);
+	src: url(../fonts/Cuprum-Bold.ttf);
 }
 
 @font-face {
 	font-family: Sans;
-	src: url(fonts/PT_Sans-Web-Regular.ttf);
+	src: url(../fonts/PT_Sans-Web-Regular.ttf);
 }	
 
 body {
