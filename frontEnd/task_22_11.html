@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Задания от 22.11.2017</title>
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+	<link rel="stylesheet" href="css/task_22_11.css">
+</head>
+<body>
+	<main>
+		<h1>Задания от 22.11.2017</h1>
+		
+		<h2>Задание 2</h2>
+		<p>Скачать картинку с областями Украины. Сделать карту изображения. Чтобы при наведение на область, показывалось ее название и при нажатии осуществлялся переход на сайт области.</p>
+
+		<div class="imgCenter">
+			<img src="img/karta.jpg" alt="Карта Украины" title="Карта Украины" usemap="#UkraineMap">
+		</div>
+
+	    <map id="UkraineMap" name="UkraineMap">
+	        <area shape="poly" coords="340, 100, 350, 240, 445, 175, 385, 105" alt="Киевская область" title="Киевская область" href="http://koda.gov.ua/" target="_blank" />
+	        <area shape="poly" coords="210, 175, 215, 280, 275, 240, 250, 150" alt="Хмельницкая область" title="Хмельницкая область" href="http://km-oblrada.gov.ua/" target="_blank" />
+	    </map>	
+
+		<h2>Задание 3</h2>
+		<p>Cделать таблицу:</p>	
+		<div class="imgCenter">
+			<img src="img/table.png" alt="Таблица">
+		</div>
+		<table width="90%" border="1" align="center">
+			<tr>
+				<th>Header</th>
+				<th>Header</th>
+				<th>Header</th>
+				<th>Header</th>
+			</tr>
+			<tr>
+				<td rowspan="4">You can span down</td>
+				<td colspan="3">You can span across</td>
+			</tr>
+			<tr>
+				<td colspan="2">It's like a puzzle</td>
+				<td rowspan="3">Over here</td>
+			</tr>
+			<tr>
+				<td rowspan="2">This way</td>
+				<td>That way</td>
+			</tr>
+			<tr>
+				<td>Where am I?</td>
+			</tr>			
+		</table>
+	</main>
+</body>
+</html>
