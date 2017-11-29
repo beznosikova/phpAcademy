@@ -1,0 +1,81 @@
+.container {
+	width: 940px;
+	margin: 0 auto;
+}
+
+#header {
+	position: absolute;
+	top: 20px;
+	left: 0;
+	right: 0;
+	width: 100%;
+	padding: 20px 0;
+}
+
+.logo {
+	float: left;
+}
+
+.nav {
+	float: right;
+	padding-top: 8px; 
+}
+
+.nav li {
+	float: left;
+	margin-right: 40px;
+}
+
+.nav li:last-child {margin-right: 0;}
+.nav a{
+	text-transform: uppercase;
+	font: 14px Arial, sans-serif;
+	color: #fff;
+}
+
+.nav a:hover{
+	color: #fed136;
+}
+
+#home {
+	height: 700px;
+	padding-top: 270px;
+	text-align: center;
+	color: #fff;
+	background: #222 url(../img/home-bg.jpg) no-repeat center bottom;
+	-webkit-background-size: cover;
+	   -moz-background-size: cover;
+		 -o-background-size: cover;
+			background-size: cover;
+}
+
+#home h3 {
+	margin-bottom: 40px;
+	font: 40px/40px Arial, sans-serif;
+}
+
+#home h1 {
+	margin-bottom: 50px;
+	text-transform: uppercase;
+	font: 75px/75px Arial, sans-serif;
+}
+
+.btn {
+	cursor: pointer;
+	color: #fff;
+	display: inline-block;
+	padding: 20px 30px;
+	text-transform: uppercase;
+	font: bold 24px/24px Arial, sans-serif;
+	background: #fed136;
+
+	-webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+		 -o-border-radius: 4px;
+			border-radius: 4px;
+}
+
+.btn:hover{
+	color: #fff;
+	background: #f1c325;
+}
