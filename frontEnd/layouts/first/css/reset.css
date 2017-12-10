@@ -49,3 +49,5 @@ a, a:hover {text-decoration: none;}
 
 .left {float: left;}
 .right {float: right;}
+.text-left {text-align: left;}
+.text-right {text-align: right;}
