@@ -43,10 +43,7 @@
 	text-align: center;
 	color: #fff;
 	background: #222 url(../img/home-bg.jpg) no-repeat center bottom;
-/*	-webkit-background-size: cover;
-	   -moz-background-size: cover;
-		 -o-background-size: cover;*/
-			background-size: cover;
+	background-size: cover;
 }
 
 #home h3 {
@@ -68,11 +65,7 @@
 	text-transform: uppercase;
 	font: bold 24px/24px Arial, sans-serif;
 	background: #fed136;
-
-/*	-webkit-border-radius: 4px;
-	   -moz-border-radius: 4px;
-		 -o-border-radius: 4px;*/
-			border-radius: 4px;
+	border-radius: 4px;
 }
 
 .btn:hover {
@@ -80,14 +73,9 @@
 	background: #f1c325;
 }
 
-.box {
-	/*padding: 120px 0;*/
-	margin: 120px 0;
-}
+.box {margin: 120px 0;}
 
-#services {
-	text-align: center;
-}
+#services {text-align: center;}
 
 h2.title {
 	text-transform: uppercase;
@@ -110,7 +98,6 @@ h5.title {
 .services__wrap,
 .portfolio__wrap,
 .about__wrap {
-	/*padding-top: 70px;*/
 	width: 100%;
 	margin-top: 70px;
 	display: inline-block;
@@ -177,10 +164,7 @@ h5.title {
 	text-align: center;
 }
 
-.about__item__text{
-	width: 36%;
-	/*outline: 1px solid red;*/
-}
+.about__item__text{width: 36%;}
 
 .about__item__text h5{
 	line-height: 25px;
@@ -196,10 +180,7 @@ h5.title {
 	font-size: 16px;
 }
 
-.about__item__img{
-	width: 28%;
-	/*outline: 1px solid red;*/
-}
+.about__item__img{width: 28%;}
 
 .about__item__img:after{
 	content: " ";
@@ -230,14 +211,10 @@ h5.title {
 	text-shadow: 0 1px rgba(0,0,0,.3);
 }
 
-#team {
-	margin: 120px 0 0 0;
-}
+#team {margin: 120px 0 0 0;}
 
 .team__wrap,
-.brand__wrap {
-	display: inline-block;
-}
+.brand__wrap {display: inline-block;}
 
 .team__wrap__item {
 	float: left;
@@ -266,9 +243,7 @@ h5.title {
 	width: 60%;
 }
 
-.social {
-	margin-top: 10px;
-}
+.social {margin-top: 10px;}
 
 .social a{
 	display: inline-block;
@@ -333,9 +308,7 @@ h5.title {
 	margin: 0 20px;
 }
 
-.brand__wrap img{
-	vertical-align: middle;
-}
+.brand__wrap img{vertical-align: middle;}
 
 #contact{
 	text-align: center;
@@ -419,4 +392,124 @@ h5.title {
 #copyright .social{
 	margin-top: 0;
 	margin-left: 370px;
+}
+
+
+@media screen and (max-width: 1024px) {
+	.container { width: 680px;}
+	#home h1 {font: 55px/55px Arial, sans-serif;}
+	#home {
+		height: 650px;
+        padding-top: 240px;
+	}
+	.box {margin: 90px 0;}	
+	.services__wrap, 
+	.portfolio__wrap, 
+	.about__wrap	{margin-top: 50px;}
+	#portfolio, #team {padding: 90px 0;}
+	.portfolio__wrap__item {
+		width: 42.7%;   
+		margin-right: 3.65%;
+		margin-left: 3.65%;
+	}
+	.portfolio__wrap__item:nth-child(3n) {margin-right: 3.65%;}
+	.portfolio__wrap__item:nth-child(2n) {margin-right: 0;}
+	.portfolio__wrap__item:nth-last-child(3){
+		margin-bottom: 50px;
+	}		
+	.portfolio__wrap__item:nth-last-child(1),
+	.portfolio__wrap__item:nth-last-child(2){
+		margin-bottom: 0;
+	}	
+	.about__item__text {padding: 10px;}
+	.brand__wrap a {margin: 10px 20px;}
+	#contact {
+	    background: #222;
+	    padding: 80px 0;		
+	}
+	#message {margin-top: 50px;}	
+}
+
+@media screen and (max-width: 768px) {
+	.container { width: 320px;}
+	.nav {line-height: 30px;}
+	#home {
+		height: 550px;
+	    padding-top: 200px;
+	}
+	#home h3 {
+	    margin-bottom: 30px;
+	    font: 28px/25px Arial, sans-serif;
+	}	
+	#home h1 {font: 40px/45px Arial, sans-serif;}	
+	.box {margin: 70px 0;}
+	#portfolio, #team {padding: 70px 0;}
+	.serices__wrap__item {
+		width: 100%; 
+	    padding: 90px 10px 10px;
+	    line-height: 26px;
+	    margin-bottom: 30px;
+	}	
+	.serices__wrap__item:nth-last-child(1){margin-bottom: 0;}
+
+	.about__wrap	{margin-top: 30px;}
+	#portfolio, #team {padding: 70px 0;}
+	#team {margin:70px 0;}
+	.portfolio__wrap__item {
+		width: 42.7%;   
+		margin-right: 3.65%;
+		margin-left: 3.65%;
+	}	
+	.portfolio__wrap__item {width: 91%;}
+	.portfolio__wrap__item:nth-last-child(2){margin-bottom: 50px;}	
+	.about__item__img img, .about__link {
+	    width: 150px;
+	    height: 150px;
+	}
+	.about__item__img,
+	.about__item__text {
+		padding: 0;
+		width: 100%;
+	}
+
+	.about__item__img:after,
+	.about__item__text:after
+	 {
+		content: " ";
+		height: 45px;
+		width: 3px;
+		background: #f1f1f1;
+		display: block;
+		margin: 0 auto;
+	}
+	.about__link {
+		font: bold 14px/18px Arial, sens-serif;
+		padding: 35px 30px;
+	}
+
+	h2.title {
+		font: bold 30px/31px Arial, sans-serif;
+	}
+
+	.team__wrap__item {
+	    float: none; 
+	    padding: 0 10px;
+	    margin-bottom: 15px;
+	    width: 100%; 
+	}	
+	.team__wrap__item:nth-last-child(1) {margin-bottom: 0;}
+	.team__info {width: 90%;}	
+	.brand__wrap a {margin: 20px 20px;}	
+	#message .left, #message .right {
+	    width: 90%;
+	    margin: 0 20px;
+	    float: none;
+	}	
+	#copyright .social {
+	    margin-top: 20px;
+	    margin-left: 20px;
+	    float: left;
+	    margin-bottom: 20px;
+	}
+	#message .btn {width: 90%;}	
 }
