@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>Калькулятор JavaScript</title>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+		#main {
+		    display: flex;
+		    min-height: 100vh;
+		}
+
+		#container {
+			margin:auto;
+			width: 40vh;
+			height: 40vh;
+			background: #4169e1;
+			font: bold 8vh/8vh Arial sans-serif;
+			text-align: center;
+			color: #fff;
+			border-radius: 50%;
+		}
+
+		#container:hover {
+			cursor: pointer;
+		}
+		.text-center {
+		    display: flex;
+		    justify-content: center;
+		    align-items: center;
+		}		
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div class="text-center" id="container">
+			Calculate? Go!
+		</div>
+	</div>
+</body>
+	<script type="text/javascript">
+		document.getElementById("container").addEventListener("click", calc);
+			
+		function add(a, b) {
+            return a + b;
+        }
+
+        function sub(a, b) {
+            return a - b;
+        }
+
+        function mul(a, b) {
+            return a * b;
+        }
+
+        function div(a, b) {
+            return a / b;
+        }
+
+		function getSign()
+		{
+			var signs = ["+", "-", "*", "/"];
+			var sign = prompt("Enter an arithmetic operation sign: + - * /");
+
+			if (sign == null || signs.indexOf(sign) == -1){
+				if (confirm("Wrong input! Enter again?")) {
+			        return getSign();
+			    } else {
+			        return false;
+			    }
+			}
+			return sign;		
+		}
+
+		function calc()
+		{
+			var num1, num2, sign, result;
+
+			do {
+			  num1 = prompt("Enter first number:");
+			} while (isNaN(num1) && num1 != null);			
+
+			do {
+			  num2 = prompt("Enter second number:");
+			} while (isNaN(num2) && num2 != null);
+
+			if (num1 == null || num2 == null){
+				if (confirm("Wrong input! Enter again?")) {
+			        calc();
+			        return false;
+			    } else {
+			        return false;
+			    }
+			}
+
+			sign = getSign();
+			if (sign){
+				switch (sign){
+					case "+":
+	                    result = add(+num1, +num2);
+	                    break;
+	                case "-":
+	                    result = sub(+num1, +num2);
+	                    break;
+	                case "*":
+	                    result = mul(+num1, +num2);
+	                    break;
+	                case "/":
+	                    result = div(+num1, +num2);
+	                    break;					
+				}
+				alert("Result: " + result);
+			}
+		}
+
+	</script>
+</html>
