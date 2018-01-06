@@ -431,8 +431,10 @@ h5.title {
 }
 
 @media screen and (max-width: 768px) {
-	.container { width: 320px;}
-	.nav {line-height: 30px;}
+	.container { width: 440px;}
+	.logo { margin-left: 40px;}
+	.nav { line-height: 30px;}
+	.nav li { margin-right: 30px;}
 	#home {
 		height: 550px;
 	    padding-top: 200px;
@@ -456,11 +458,9 @@ h5.title {
 	#portfolio, #team {padding: 70px 0;}
 	#team {margin:70px 0;}
 	.portfolio__wrap__item {
-		width: 42.7%;   
-		margin-right: 3.65%;
-		margin-left: 3.65%;
+		width: 290px;   
+		margin-left: 75px;
 	}	
-	.portfolio__wrap__item {width: 91%;}
 	.portfolio__wrap__item:nth-last-child(2){margin-bottom: 50px;}	
 	.about__item__img img, .about__link {
 	    width: 150px;
@@ -507,9 +507,92 @@ h5.title {
 	}	
 	#copyright .social {
 	    margin-top: 20px;
-	    margin-left: 20px;
+	    margin-left: 120px;
 	    float: left;
 	    margin-bottom: 20px;
 	}
 	#message .btn {width: 90%;}	
+}
+
+@media screen and (max-width: 480px) {
+	.container { width: 300px;}
+	.nav {line-height: 22px;}
+	.nav a {font: 12px Arial, sans-serif;}
+
+	#home {
+		height: 430px;
+	    padding-top: 150px;
+	}
+	#home h3 {font: 26px/26px Arial, sans-serif;}	
+	#home h1 {
+		font: 30px/38px Arial, sans-serif;
+		margin-bottom: 40px;
+	}	
+	.btn {font: bold 20px/20px Arial, sans-serif;}	
+	.box {margin: 50px 0;}
+	#portfolio, #team {padding: 50px 0;}
+
+	.about__wrap	{margin-top: 30px;}
+	#portfolio, #team {padding: 50px 0;}
+	#team {margin:50px 0;}
+
+	.portfolio__wrap__item img{width: 273px;}
+ 	.portfolio__wrap__item {
+		width: 91%;   
+		margin-right: 3.65%;
+		margin-left: 5.65%;
+	}	
+	.portfolio__wrap__item:nth-last-child(2){margin-bottom: 50px;}	
+	 	
+	.about__item__img img, .about__link {
+	    width: 150px;
+	    height: 150px;
+	}
+	.about__item__img,
+	.about__item__text {
+		padding: 0;
+		width: 100%;
+	}
+
+	.about__item__img:after,
+	.about__item__text:after
+	 {
+		content: " ";
+		height: 45px;
+		width: 3px;
+		background: #f1f1f1;
+		display: block;
+		margin: 0 auto;
+	}
+	.about__link {
+		font: bold 14px/18px Arial, sens-serif;
+		padding: 35px 30px;
+	}
+
+	h2.title {
+		font: bold 28px/31px Arial, sans-serif;
+	}
+
+	.team__wrap__item img{
+		width: 200px;
+	    height: 200px;
+	}
+	.brand__wrap a {margin: 20px 20px;}	
+	#copyright .social {
+	    margin-left: 45px;
+	}
+	#message .btn {width: 90%;}
+}
+
+@media screen and (max-width: 320px) {
+	.container { width: 280px;}
+	#header .nav{ margin-left: 20px;}
+
+	#home h3 {font: 22px/26px Arial, sans-serif;}	
+	#home h1 {
+		font: 25px/38px Arial, sans-serif;
+		margin-bottom: 30px;
+	}
+	h2.title {font: bold 23px/23px Arial, sans-serif;}	
+	.portfolio__wrap__item img{width: 253px;}	
 }

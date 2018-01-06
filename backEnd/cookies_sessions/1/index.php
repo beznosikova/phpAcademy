@@ -25,10 +25,7 @@ function render(string $view, array $items = []) : string
 }
 function getUserName() : string
 {
-    if (!empty($_SESSION['userName']))
-        return $_SESSION['userName'];
-    else
-        return "";
+    return $_SESSION['userName'] ?? '';
 }
 function setUserName($inputName) : bool
 {
