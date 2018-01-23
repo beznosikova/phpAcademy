@@ -1,0 +1,50 @@
+<html>
+<head>
+    <title>sort() for Number</title>
+
+    <script type="text/javascript">
+
+    	var arrayLength = +prompt("Enter array length");
+    	
+    	if (!isNaN(arrayLength) && arrayLength > 0){
+    		
+    		var randomArray = [];
+
+    		// create array
+    		for (var i = 0; i < arrayLength; i++) {
+    			randomArray.push(getRandomInt(0,1000));
+    		}
+	        document.write(randomArray.join(" , "));
+	        document.write("<hr/>");
+
+            // the first way
+            randomArray.sort(compareNumericAsc);
+	        document.write(randomArray.join(" , "));
+	        document.write("<hr/>");    
+
+            // the second way
+            randomArray.sort(compareNumericDesc);
+            document.write(randomArray.join(" , "));
+            document.write("<hr/>");               		
+    	}
+
+        // from smaller numbers
+        function compareNumericAsc(a, b) {
+          if (a > b) return 1;
+          if (a < b) return -1;
+        }
+
+        // from bigger numbers
+        function compareNumericDesc(a,b) {
+            return -(a - b);
+        }        
+
+		function getRandomInt(min, max) {
+		  return Math.round(Math.random() * (max - min)) + min;
+		}
+    </script>
+
+</head>
+<body>
+</body>
+</html>

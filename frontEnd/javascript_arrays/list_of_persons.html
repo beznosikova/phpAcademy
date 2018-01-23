@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>List of persons</title>
+
+    <script type="text/javascript">
+
+        var personsList = [];
+
+        function ask() {
+            name = prompt("Введите свое имя:");
+            sname = prompt("Введите свою фамилию:");
+            age = prompt("Введите свой возраст:");
+            personsList.push({name, sname, age});
+        }
+
+        function say(person) {
+            document.write("Имя: " + person.name + "<br />");
+            document.write("Фамилия: " + person.sname + "<br />");
+            document.write("Возраст: " + person.age + "<br />");
+            document.write("<hr/>");
+        }
+
+
+        while (confirm("Добавить персону?")){
+            ask();
+        }
+        
+        for (var key in personsList){
+            say(personsList[key]);
+        }
+
+    </script>
+
+</head>
+<body>
+</body>
+</html>

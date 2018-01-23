@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Custom reverse()</title>
+
+    <script type="text/javascript">
+    	var arrayLength = +prompt("Enter array length");
+    	
+    	if (!isNaN(arrayLength) && arrayLength > 0){
+    		
+    		var randomArray = [];
+
+    		// create array
+    		for (var i = 0; i < arrayLength; i++) {
+    			randomArray.push(getRandomInt(0,1000));
+    		}
+	        document.write(randomArray.join(" , "));
+	        document.write("<hr/>");
+
+    		// reverse array
+    		var halfLength = parseInt(arrayLength/2);
+    		var lastJ = arrayLength-1;
+    		for (var j = 0; j < halfLength; j++) {
+    			randomArray[j] = randomArray[j] + randomArray[lastJ];
+    			randomArray[lastJ] = randomArray[j] - randomArray[lastJ];
+    			randomArray[j] = randomArray[j] - randomArray[lastJ];
+    			lastJ--;
+    		}
+
+	        document.write(randomArray.join(" , "));
+	        document.write("<hr/>");    		
+    	}
+
+        randomArray.reverse();
+        document.write(randomArray.join(" , "));
+
+		function getRandomInt(min, max) {
+		  return Math.floor(Math.random() * (max - min)) + min;
+		}
+    </script>
+
+</head>
+<body>
+</body>
+</html>
