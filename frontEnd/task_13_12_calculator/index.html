@@ -40,35 +40,49 @@
 	<script type="text/javascript">
 		document.getElementById("container").addEventListener("click", calc);
 			
-		function add(a, b) {
+		function add(a, b) 
+		{
             return a + b;
         }
 
-        function sub(a, b) {
+        function sub(a, b) 
+        {
             return a - b;
         }
 
-        function mul(a, b) {
+        function mul(a, b) 
+        {
             return a * b;
         }
 
-        function div(a, b) {
+        function div(a, b) 
+        {
             return a / b;
+        }
+
+        function calculator(callback, a, b)
+        {
+        	alert("Result: " + callback(a, b));
         }
 
 		function getSign()
 		{
-			var signs = ["+", "-", "*", "/"];
+			var signs = {
+				"+": add, 
+				"-": sub, 
+				"*": mul, 
+				"/": div,
+			};
 			var sign = prompt("Enter an arithmetic operation sign: + - * /");
 
-			if (sign == null || signs.indexOf(sign) == -1){
+			if (sign == null || !(sign in signs)){
 				if (confirm("Wrong input! Enter again?")) {
 			        return getSign();
 			    } else {
 			        return false;
 			    }
 			}
-			return sign;		
+			return signs[sign];		
 		}
 
 		function calc()
@@ -93,23 +107,8 @@
 			}
 
 			sign = getSign();
-			if (sign){
-				switch (sign){
-					case "+":
-	                    result = add(+num1, +num2);
-	                    break;
-	                case "-":
-	                    result = sub(+num1, +num2);
-	                    break;
-	                case "*":
-	                    result = mul(+num1, +num2);
-	                    break;
-	                case "/":
-	                    result = div(+num1, +num2);
-	                    break;					
-				}
-				alert("Result: " + result);
-			}
+			if (sign)
+				calculator(sign, +num1, +num2);
 		}
 
 	</script>

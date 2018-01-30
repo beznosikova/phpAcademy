@@ -1,33 +1,57 @@
 <html>
 <head>
     <title>List of persons</title>
-
+    <style>
+        tr.header {
+            font-weight: bold;
+        }
+    </style>
     <script type="text/javascript">
 
         var personsList = [];
 
         function ask() {
-            name = prompt("Введите свое имя:");
-            sname = prompt("Введите свою фамилию:");
-            age = prompt("Введите свой возраст:");
-            personsList.push({name, sname, age});
+            var name = prompt("Введите имя персоны:");
+            var sname = prompt("Введите фамилию персоны:");
+            var age = parseInt(prompt("Введите возраст персоны:"));
+            var sex = prompt("Введите пол персоны:");
+            var languages = getLanguages();
+            personsList.push({name, sname, age, sex, languages});
         }
 
-        function say(person) {
-            document.write("Имя: " + person.name + "<br />");
-            document.write("Фамилия: " + person.sname + "<br />");
-            document.write("Возраст: " + person.age + "<br />");
-            document.write("<hr/>");
+        function sayPerson(person) {
+            
+            document.write('<tr>');
+            for (key in person){
+                document.write('<td>' + person[key] + '</td>');
+            }
+            document.write('</tr>');
         }
 
+        function getLanguages()
+        {
+            var languages = [];
+            languages.push(prompt("Введите язык программирований, которым владеет персона:"));
+            while (languages[0] && confirm("Еще владет персона языками?")){
+               languages.push(prompt("Введите язык программирований, которым владеет персона:"));
+            }           
+            return languages;
+        }
+
+        function say()
+        {
+            document.write('<table border="1"><tr class="header"><td>Имя</td><td>Фамилия</td><td>Возраст</td><td>Пол</td><td>Языки программирования</td></tr>');
+            for (var key in personsList){
+                sayPerson(personsList[key]);
+            }
+            document.write('</table>');            
+        }
 
         while (confirm("Добавить персону?")){
             ask();
         }
         
-        for (var key in personsList){
-            say(personsList[key]);
-        }
+        say();
 
     </script>
 
