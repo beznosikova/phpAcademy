@@ -1,0 +1,60 @@
+<html>
+<head>
+    <title>List of persons</title>
+    <style>
+        tr.header {
+            font-weight: bold;
+        }
+    </style>
+    <script type="text/javascript">
+        function Automobile(color, model, year, manufact)
+        {
+            this.color    = color;   
+            this.model    = model;   
+            this.year     = year;   
+            this.manufact = manufact;          
+        }
+        Automobile.prototype.whatColor = function(){
+            document.write(this.color + ", ");
+        }
+        Automobile.prototype.autoInfo = function(){
+            document.write([this.model, this.year, this.manufact].join(", "));
+            document.write("<hr/>");
+        }
+
+        var listAuto = [];
+        listAuto.push(new Automobile("Красный", "Skyline", "2007", "Nissan"));
+        listAuto.push(new Automobile("Черный", "Corolla", "2009", "Toyota"));
+        listAuto.push(new Automobile("Синий", "Golf", "2009", "Volkswagen"));
+
+        for (var i = 0; i < listAuto.length; i++){
+            listAuto[i].whatColor();
+            listAuto[i].autoInfo();
+        }
+        document.write("<hr/>");
+
+        function Driver(name, experience)
+        {
+            this.name        = name;   
+            this.experience  = experience;
+            this.driverInfo = function(){
+                document.write("Водитель: " + [this.name, this.experience].join(", "));
+                document.write("<hr/>");
+            }
+        }
+
+        var auto = new Automobile("Белый", "Focus", "2010", "Ford");
+        Driver.prototype = auto;
+        var driver = new Driver("Дмитрий", 3);
+
+   
+        driver.whatColor();
+        driver.autoInfo();
+        driver.driverInfo();
+
+    </script>
+
+</head>
+<body>
+</body>
+</html>
