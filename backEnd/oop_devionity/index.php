@@ -1,24 +1,27 @@
 <?php
-use Devionity\DataBase;
+use Devionity\{DataBase, ContactForm};
 
-require_once "config.php";
+require_once "autoload.php";
+require_once "config/db.php";
 
-if (!empty($_POST['phone']) && !empty($_POST['message'])) {
+$formData = $_POST;
+if (!empty($formData)) {
 
-    try {
-        foreach ($_POST as &$param){
-            $param = htmlspecialchars($param);
+    foreach ($formData as &$param){
+        $param = htmlspecialchars($param);
+    }
+
+    $callBack = new ContactForm($formData);
+    if ($callBack->validate()) {
+
+        try {
+            $saveResult = $callBack->addToDB();
+        } catch (Exception $exception) {
+            echo $exception->getMessage();
         }
-        $callBack = new Devionity\ContactForm($_POST);
-        $saveResult = Devionity\DataBase::addCallBack($callBack);
-    } catch (Exception $exception) {
-        echo $exception->getMessage();
+
     }
 
 }
-
-//echo "<pre>";
-//print_r(Devionity\DataBase::getCallBacks());
-//echo "</pre>";
 
 require_once "view.php";
