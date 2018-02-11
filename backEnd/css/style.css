@@ -11,6 +11,10 @@
     margin-bottom: 0;
 }
 
+.form__title  {
+    text-align: center;
+}
+
 .form__row  {
     margin-bottom: 10px;
     overflow: hidden;
