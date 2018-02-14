@@ -1,0 +1,149 @@
+<html>
+<head>
+    <title>Timer</title>
+    <style>
+        html {background-color: #c3d0d1;}
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 940px;
+            margin: 0 auto;
+        }
+        .timer__wrap{
+            margin: 50px auto;
+            background: url(ciferblat.png) no-repeat center bottom;
+            background-size: cover;
+            height: 420px;
+            width: 420px;
+            position: relative;
+        }
+        .btn__wrap {
+            margin: 50px auto;
+            width: 250px;
+        }
+        #arrow {
+            margin: auto;
+            position: absolute;
+            top: 21px;
+            left: 0;
+            right: 0;
+            background: url(arrow.png) no-repeat center bottom;
+            background-size: cover;
+            width: 20px;
+            height: 199px;
+            transform: rotate(0deg);
+            transform-origin: center 189px;
+        }
+        #timer{
+            padding-top: 265px;
+            padding-left: 105px;
+            font: 40px Arial, sans-serif;
+            color: #00aced;
+        }
+        .btn {
+            float: left;
+            width: 100px;
+            cursor: pointer;
+            color: #fff;
+            display: inline-block;
+            padding: 20px 0;
+            margin: 0 10px;
+            text-transform: uppercase;
+            font: bold 18px/18px Arial, sans-serif;
+            text-align: center;
+            background: #fed136;
+            border-radius: 10px;
+        }
+        #start {
+            background-color: #00aced;
+        }
+        #stop {
+            background-color: #fed136;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="timer__wrap">
+            <div id="arrow"></div>
+            <div id="timer">00:00:00.00</div>
+        </div>
+        <div class="btn__wrap">
+            <div id="start" class="btn">Start</div>
+            <div id="stop" class="btn">Clear</div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+    var timer,
+        template = 'h:m:s.ms',
+        counter = {'h':0, 'm':0, 's':0, 'ms':0},
+        isCounter = false,
+        elementTimer = document.getElementById("timer"),
+        elementArrow = document.getElementById("arrow");
+
+    var startBtn = document.getElementById("start"),
+        stopBtn = document.getElementById("stop");
+
+    startBtn.addEventListener("click", start);
+    stopBtn.addEventListener("click", stop);
+
+    function incCounter() {
+        counter.ms++;
+        if (counter.ms == 100){
+            counter.ms = 0;
+            counter.s++;
+            var deg = counter.s * 6;
+            elementArrow.style.transform = "rotate(" + deg + "deg)";
+            if (counter.s == 60) {
+                counter.s = 0;
+                counter.m++;
+                if (counter.m == 60){
+                    counter.m = 0;
+                    counter.h++;
+                }
+            }
+        }
+    }
+
+    function render() {
+        var output = template;
+
+        for (var key in counter){
+            var value = (counter[key] < 10) ? "0" + counter[key] : counter[key];
+            output = output.replace(key, value);
+        }
+        elementTimer.innerText = output;
+        incCounter();
+    }
+
+    function stop()
+    {
+        isCounter = false;
+        for (key in counter){ counter[key] = 0;}
+        render();
+        elementArrow.style.transform = "rotate(0deg)";
+        clearInterval(timer);
+    }
+
+    function start()
+    {
+        render();
+        if (!isCounter){
+            timer = setInterval(function() {
+                render();
+            }, 10);
+            startBtn.innerText = "Stop";
+        } else {
+            clearInterval(timer);
+            startBtn.innerText = "Start";
+        }
+        isCounter = (!isCounter);
+    }
+
+
+</script>

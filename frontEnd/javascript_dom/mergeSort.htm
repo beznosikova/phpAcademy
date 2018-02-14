@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Merge sort for DOM elements</title>
+    <script type="text/javascript">
+
+        function mergeSort (arr) {
+          if (arr.length === 1) {
+            return arr
+          }
+
+          const middle = Math.floor(arr.length / 2)
+          const left = arr.slice(0, middle)
+          const right = arr.slice(middle)
+
+          return merge(
+            mergeSort(left),
+            mergeSort(right)
+          )
+        }
+
+        function merge (left, right) {
+          let result = []
+          let indexLeft = 0
+          let indexRight = 0
+          let leftElemnt = 0
+          let rightElemnt = 0
+
+          while (indexLeft < left.length && indexRight < right.length) {
+            leftElemnt = left[indexLeft].firstChild.data;
+            rightElemnt = right[indexRight].firstChild.data;
+
+            if (leftElemnt < rightElemnt) {
+              result.push(left[indexLeft])
+              indexLeft++
+            } else {
+              result.push(right[indexRight])
+              indexRight++
+            }
+          }
+
+          return result.concat(left.slice(indexLeft)).concat(right.slice(indexRight))
+        }
+   
+        function sortchildren(e) {
+            if (typeof e == "string") e = document.getElementById(e);
+
+            var children = [];
+            for (var x = e.firstChild; x != null; x = x.nextSibling)
+                if (x.nodeType == 1) children.push(x);
+
+            var result = mergeSort(children);
+
+            for (var i = 0; i < result.length; i++) e.appendChild(result[i]);
+        }
+    </script>
+</head>
+<body>
+    <h3>Merge sort</h3>
+    <ul id="mylist">
+        <li>4ggg</li>
+        <li>aaa2</li>
+        <li>gs7</li>
+        <li>1ww</li>
+        <li>sdfs8</li>
+        <li>9ss</li>
+    </ul>
+    
+    <button onclick="sortchildren('mylist')">
+        Sort list</button>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Работа с узлами DOM</title>
+    <script type="text/javascript">
+
+        function selectChild(first = true) {
+            resetColor();
+            var list = document.getElementById("list");
+            var child = (first) ? list.firstChild : list.lastChild;
+            if (child != null) {
+                child.setAttribute("style", "color:red;");
+            }
+        }
+
+        var node = null;
+
+        function selectNode(next = true) {
+            resetColor();
+            var list = document.getElementById("list");
+
+            if (node == null) {
+                node = (next) ? list.firstChild : list.lastChild;
+                node.setAttribute("style", "color:blue");
+                return;
+            }
+
+            node = (next) ? node.nextSibling : node.previousSibling;
+            if (node == null) { //проверка если следующий null
+                node = (next) ? list.firstChild : list.lastChild;
+            }
+            node.setAttribute("style", "color:blue");
+        }
+
+        function resetColor() {
+            var liList = document.getElementsByTagName("li");
+            for (var i = 0; i < liList.length; i++) {
+                liList[i].setAttribute("style", "color:black");
+            }
+        }
+
+        function removeLastChild() {
+            var list = document.getElementById("list");
+            var item = list.lastChild;
+            if (item != null) {
+                list.removeChild(item);
+            }
+        }
+
+        function createNewChild() {
+            var list = document.getElementById("list");
+            var item = document.createElement("li");
+            var last = list.lastChild;
+            var number = (last != null) ? (+last.innerText.split(" ")[2] + 1) : 1;
+
+            item.innerHTML = "List Item " + number;
+            list.appendChild(item);
+        }
+
+        function createNewChildAtStart() {
+            var list = document.getElementById("list");
+            var item = document.createElement("li");
+
+            var first = list.firstChild;
+            var number = (first != null) ? (+first.innerText.split(" ")[2] - 1) : 1;            
+
+            item.innerHTML = "List Item " + number;
+            if (list.firstChild != null) {
+                list.insertBefore(item, list.firstChild);
+            } else {
+                list.appendChild(item);
+            }
+        }
+    </script>
+</head>
+<body>
+    <ul id="list"><li>List Item 1</li><li>List Item 2</li><li>List Item 3</li><li>List Item 4</li><li>List Item 5</li></ul>
+    <br />
+    <input type="button" onclick="selectChild()" style="width: 210px;" value="Выбрать первый элемент" /><br />
+    <input type="button" onclick="selectChild(false)" style="width: 210px;" value="Выбрать последний элемент" /><br />
+    <input type="button" onclick="selectNode()" style="width: 210px;" value="Выбрать следующий элемент" /><br />
+    <input type="button" onclick="selectNode(false)" style="width: 210px;" value="Выбрать предыдущий элемент" /><br />
+    <input type="button" onclick="createNewChild()" style="width: 210px;" value="Добавить элемент" /><br />
+    <input type="button" onclick="removeLastChild()" style="width: 210px;" value="Удалить элемент" /><br />
+    <input type="button" onclick="createNewChildAtStart()" style="width: 210px;" value="Добавить  в начало" /><br />
+</body>
+</html>
+
