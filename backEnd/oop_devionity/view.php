@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
+    <script src="script.js"></script>
 </head>
 <body>
 <div class="form">
@@ -20,21 +21,20 @@
             else
                 echo "Данные успешно сохранены!";?>
         </div>
-        <div class="form__error">
-        </div>
     <?endif;?>
-    <form action="" method="post">
+    <div class="form__error" id="contactError"></div>
+    <form action="" method="post" id="contactForm">
         <div class="form__row">
             <label for="name">Имя:</label>
-            <input id="name" name="name" type="text" value="" />
+            <input id="name" name="name" type="text" value="" placeholder="Имя" />
         </div>
         <div class="form__row">
             <label for="email">E-mail:</label>
-            <input id="email" name="email" type="email" value="" />
+            <input id="email" name="email" type="email" value=""  placeholder="your@mail.com"/>
         </div>
         <div class="form__row">
             <label for="phone">Телефон:</label>
-            <input id="phone" name="phone" type="text" value="" />
+            <input id="phone" name="phone" type="text" value="" placeholder="+38 (067) 700-00-07" />
         </div>
         <div class='form__row'>
             <label for='mes'>Сообщение:</label>
