@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Move a small rectangle in a big one</title>
+    
+    <style>
+        #first{
+            width: 400px;
+            height: 400px;
+            background-color: #fab;
+            border-width: 0;
+            margin: 10px auto;
+            position: relative;
+        }
+        #second{
+            width: 50px;
+            height: 50px;
+            background-color: yellow;
+            border-width: 0;
+            top:10px;
+            left:20px;
+            position: absolute;
+        }        
+    </style>
+
+    <script>
+
+        window.onload = function () {
+            var big = document.getElementById("first");
+            var small = document.getElementById("second");
+
+            small.onmousedown = function (e) {
+
+                var startMouseX = e.clientX;
+                var startMouseY = e.clientY;
+                var startOffsetLeft = small.offsetLeft;
+                var startOffsetTop = small.offsetTop;
+
+                big.onmousemove = function (ee){
+
+                    big.style.border = "0";
+                    var borderStyle = "2px solid red";
+
+                    var difX = ee.clientX - startMouseX;
+                    var difY = ee.clientY - startMouseY;
+                    var newLeft = startOffsetLeft + difX;
+                    var newTop = startOffsetTop + difY;
+
+                    if (newLeft > -1 && newLeft < 352 && newTop > -1 && newTop < 352){ 
+                        small.style.left = newLeft + "px";                    
+                        small.style.top = newTop + "px";
+                    }
+
+                    if (newTop > 350)
+                        big.style.borderBottom = borderStyle;
+                    if (newLeft > 350)
+                        big.style.borderRight = borderStyle;
+
+                    if (newTop < 1)
+                        big.style.borderTop = borderStyle;
+                    if (newLeft < 1)
+                        big.style.borderLeft = borderStyle;
+
+                    document.onmouseup = function (){
+                        big.onmousemove = false;
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="first">
+        <div id="second">
+        </div>
+    </div>
+</body>
+</html>
