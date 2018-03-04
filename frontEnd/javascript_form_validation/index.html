@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="<?=App::getRouter()->getLanguage()?>">
+<head>
+    <title>Form validation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/starter-template/starter-template.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="/">Site name</a>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item <?if (App::getRouter()->getController() == 'pages') echo 'active'?>">
+                    <a class="nav-link" href="/pages/">Pages</a>
+                </li>
+                <li class="nav-item  <?if (App::getRouter()->getController() == 'contacts') echo 'active'?>">
+                    <a class="nav-link" href="/contacts/">Contact us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main role="main" class="container">
+
+        <div class="starter-template">
+        <h3>Register</h3>
+        <form action="" method="post" novalidate>
+            <div class="input-wrapper">
+                <label for="login" class="place-holder">Login</label>
+                <input
+                        type="text"
+                        id="login"
+                        name="login"
+                        value=""
+                        class="input-register"
+                        data-func="validLogin"
+                >
+                <div class="text-error"></div>
+            </div>
+            <div class="input-wrapper">
+                <label for="email" class="place-holder">E-mail</label>
+                <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value=""
+                        class="input-register"
+                        data-func="validEmail"
+                >
+                <div class="text-error"></div>
+            </div>
+            <div class="input-wrapper">
+                <label for="psw" class="place-holder">Password</label>
+                <input
+                        type="password"
+                        id="psw"
+                        name="password"
+                        value=""
+                        class="input-register"
+                        data-func="validPsw"
+                >
+                <div class="text-error"></div>
+            </div>
+            <div class="input-wrapper">
+                <label for="psw_second" class="place-holder">Repeat password</label>
+                <input
+                        type="password"
+                        id="psw_second"
+                        name="password_second"
+                        value=""
+                        class="input-register"
+                        data-func="validPsw"
+                >
+                <div class="text-error"></div>
+            </div>
+            <input
+                    type="submit"
+                    id="btn"
+                    class="btn btn-success"
+                    name="register"
+                    value="Send"
+                    disabled
+            >
+        </form>
+        </div>
+    </main>
+
+    <script src="valid.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
