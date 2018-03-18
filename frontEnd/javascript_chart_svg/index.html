@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Создание гистограммы</title>
+    <style>
+        #chartContainer {position: relative;}
+        #label {
+            position: absolute;
+            display: none;
+            width: 100px;
+            height: 20px;
+            background-color: #ebf0f3;
+            padding: 5px;
+            font: 14px Arial, sans-serif;
+        }
+    </style>
+    <script src="script.js"></script>
+    <script>
+        window.addEventListener("load", function () {
+            var chart = createBarChart([30, 6, 88, 91, 2, 45, 100, 150, 200],
+                600,
+                500,
+                "green");
+
+            var container = document.getElementById("chartContainer");
+            container.appendChild(chart);
+
+        });
+    </script>
+</head>
+<body>
+    <div id="chartContainer">
+        <div id="label"></div>
+    </div>
+</body>
+</html>
